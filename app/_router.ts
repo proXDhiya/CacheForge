@@ -3,6 +3,7 @@ import FLUSHALL from "./commands/dataManipulation/FLUSHALL";
 import EXISTS from "./commands/dataManipulation/EXISTS";
 import CONFIG from "./commands/configuration/CONFIG";
 import KEYS from "./commands/dataManipulation/KEYS";
+import COPY from "./commands/dataManipulation/COPY";
 import SET from "./commands/dataManipulation/SET";
 import GET from "./commands/dataManipulation/GET";
 import DEL from "./commands/dataManipulation/DEL";
@@ -25,6 +26,7 @@ const router = (commands: IRESP[]): ICommand => {
     if (/keys/gim.test(command)) return KEYS(commands);
     if (/flushall/gim.test(command)) return FLUSHALL();
     if (/exists/gim.test(command)) return EXISTS(commands);
+    if (/copy/gim.test(command)) return COPY(commands);
 
     // Configuration commands
     if (/config/gim.test(command)) return CONFIG(commands);

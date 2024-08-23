@@ -35,6 +35,7 @@ const decode = (data: string): IRESP[] => {
         };
     })
 };
+
 export default {
     encode,
     decode,
