@@ -4,7 +4,7 @@ import Storage from "../storage/storage";
 import IRESP from "../protocol/IRESP";
 
 const SET = (data: IRESP[]): ICommand => {
-    if (data.length <= 3) return NUMBER_ARGS(data);
+    if (data.length < 3) return NUMBER_ARGS(data);
 
     const key = data[1].data.toString();
     const value = data[2].data;
