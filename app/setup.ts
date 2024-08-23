@@ -1,4 +1,4 @@
-import RDB from './storage/RDB';
+import SharedEnv from './storage/SharedEnv';
 
 (
     () => {
@@ -10,6 +10,6 @@ import RDB from './storage/RDB';
         }
 
         for (let i = 0; i < args.length; i += 2)
-            RDB.set(args[i].substring(2), args[i + 1]);
+            SharedEnv.setEnv(args[i].substring(2), args[i + 1]);
     }
 )();

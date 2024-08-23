@@ -11,17 +11,15 @@ const RENAMENX = (data: IRESP[]): ICommand => {
 
     if (!SharedStorage.find(key)) {
         return <ICommand>{
-            type: 'string',
-            data: 'ERR',
-            isErr: true
+            type: 'error',
+            data: 'ERR'
         }
     }
 
     if (SharedStorage.find(newKey))
         return <ICommand>{
             type: 'integer',
-            data: 0,
-            isErr: false
+            data: 0
         }
 
     SharedStorage.set(newKey, SharedStorage.get(key));
@@ -29,8 +27,7 @@ const RENAMENX = (data: IRESP[]): ICommand => {
 
     return <ICommand>{
         type: 'integer',
-        data: 1,
-        isErr: false
+        data: 1
     }
 };
 

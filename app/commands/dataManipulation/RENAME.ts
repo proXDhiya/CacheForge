@@ -11,9 +11,8 @@ const RENAME = (data: IRESP[]): ICommand => {
 
     if (!SharedStorage.find(key)) {
         return <ICommand>{
-            type: 'string',
-            data: 'ERR',
-            isErr: true
+            type: 'error',
+            data: 'ERR'
         }
     }
 
@@ -22,8 +21,7 @@ const RENAME = (data: IRESP[]): ICommand => {
 
     return <ICommand>{
         type: 'string',
-        data: 'Ok',
-        isErr: false
+        data: 'Ok'
     }
 };
 

@@ -6,8 +6,7 @@ const FLUSHALL = (): ICommand => {
 
     return <ICommand>{
         type: 'string',
-        data: 'OK',
-        isErr: false
+        data: 'OK'
     };
 }
 

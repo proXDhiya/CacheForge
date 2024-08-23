@@ -16,8 +16,7 @@ const EXISTS = (data: IRESP[]): ICommand => {
 
     return <ICommand>{
         type: 'integer',
-        data: exists,
-        isErr: false
+        data: exists
     };
 }
 

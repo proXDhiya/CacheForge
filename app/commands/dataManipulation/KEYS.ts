@@ -11,8 +11,7 @@ const KEYS = (data: IRESP[]): ICommand => {
 
     return <ICommand>{
         type: 'array',
-        data: keysFound,
-        isErr: false
+        data: keysFound
     }
 };
 

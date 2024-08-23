@@ -19,9 +19,8 @@ const SET = (data: IRESP[]): ICommand => {
 
     if (isEx && duration === undefined) {
         return <ICommand>{
-            type: 'string',
-            data: 'ERR',
-            isErr: true
+            type: 'error',
+            data: 'ERR'
         };
     }
 
@@ -29,8 +28,7 @@ const SET = (data: IRESP[]): ICommand => {
 
     return <ICommand>{
         type: 'string',
-        data: 'OK',
-        isErr: false
+        data: 'OK'
     };
 };
 

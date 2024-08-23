@@ -16,8 +16,7 @@ const DEL = (data: IRESP[]): ICommand => {
 
     return <ICommand>{
         type: 'integer',
-        data: deleted,
-        isErr: false
+        data: deleted
     };
 }
 

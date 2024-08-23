@@ -12,8 +12,7 @@ const TTL = (data: IRESP[]): ICommand => {
 
     return <ICommand>{
         type: 'integer',
-        data: ttl,
-        isErr: false
+        data: ttl
     };
 };
 

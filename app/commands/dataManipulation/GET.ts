@@ -15,8 +15,7 @@ const GET = (data: IRESP[]): ICommand => {
 
     return <ICommand>{
         type: 'string',
-        data: value,
-        isErr: false
+        data: value
     }
 }
 

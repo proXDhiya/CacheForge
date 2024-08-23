@@ -1,7 +1,6 @@
 interface ICommand {
-    type: 'string' | 'integer' | 'bulk' | 'array',
+    type: 'string' | 'integer' | 'bulk' | 'array' | 'error',
     data: string,
-    isErr: boolean
 }
 
 export default ICommand;

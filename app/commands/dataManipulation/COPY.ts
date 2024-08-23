@@ -15,8 +15,7 @@ const COPY = (data: IRESP[]): ICommand => {
     if (isDestinationExists && !replaceFlag) {
         return <ICommand>{
             type: 'integer',
-            data: 0,
-            isErr: false
+            data: 0
         };
     }
 
@@ -25,8 +24,7 @@ const COPY = (data: IRESP[]): ICommand => {
 
     return <ICommand>{
         type: 'integer',
-        data: 1,
-        isErr: false
+        data: 1
     };
 };
 

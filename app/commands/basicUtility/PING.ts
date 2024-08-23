@@ -1,10 +1,9 @@
 import ICommand from "../interfaces/command.interface";
 
 const PING = (): ICommand => {
-    return {
+    return <ICommand>{
         type: 'string',
-        data: 'PONG',
-        isErr: false
+        data: 'PONG'
     }
 }
 

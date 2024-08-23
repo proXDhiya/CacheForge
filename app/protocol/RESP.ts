@@ -3,7 +3,7 @@ import formatArray from "./helpers/formatArray";
 import IRESP from './IRESP';
 
 const encode = (obj: IRESP): string => {
-    if (obj.isErr) return `-${obj.data}\r\n`;
+    if (obj.type === 'error') return `-${obj.data}\r\n`;
 
     switch (obj.type) {
         case 'string':
