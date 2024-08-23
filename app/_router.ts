@@ -1,6 +1,7 @@
 import ICommand from "./commands/interfaces/command.interface";
 import FLUSHALL from "./commands/dataManipulation/FLUSHALL";
 import EXISTS from "./commands/dataManipulation/EXISTS";
+import RENAME from "./commands/dataManipulation/RENAME";
 import CONFIG from "./commands/configuration/CONFIG";
 import KEYS from "./commands/dataManipulation/KEYS";
 import COPY from "./commands/dataManipulation/COPY";
@@ -24,9 +25,10 @@ const router = (commands: IRESP[]): ICommand => {
     if (/get/gim.test(command)) return GET(commands);
     if (/del/gim.test(command)) return DEL(commands);
     if (/keys/gim.test(command)) return KEYS(commands);
+    if (/copy/gim.test(command)) return COPY(commands);
     if (/flushall/gim.test(command)) return FLUSHALL();
     if (/exists/gim.test(command)) return EXISTS(commands);
-    if (/copy/gim.test(command)) return COPY(commands);
+    if (/rename/gim.test(command)) return RENAME(commands);
 
     // Configuration commands
     if (/config/gim.test(command)) return CONFIG(commands);
