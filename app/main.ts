@@ -1,4 +1,6 @@
-import Router from "./commands/_router";
+import {} from "./setup";
+
+import Router from "./_router";
 import RESP from "./protocol/RESP";
 import * as net from "net";
 

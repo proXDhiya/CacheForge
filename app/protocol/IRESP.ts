@@ -1,6 +1,6 @@
 interface IRESP {
     type: 'string' | 'integer' | 'bulk';
-    data: string | number | IRESP[];
+    data: string | string[] | number | IRESP[];
     length?: number;
     isErr?: boolean;
 }

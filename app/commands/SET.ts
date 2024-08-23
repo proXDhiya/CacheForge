@@ -1,6 +1,6 @@
 import ICommand from "./interfaces/command.interface";
+import SharedStorage from "../storage/SharedStorage";
 import NUMBER_ARGS from "./errors/numberArgs";
-import Storage from "../storage/storage";
 import IRESP from "../protocol/IRESP";
 
 const SET = (data: IRESP[]): ICommand => {
@@ -25,7 +25,7 @@ const SET = (data: IRESP[]): ICommand => {
         };
     }
 
-    Storage.set(key, value, duration);
+    SharedStorage.set(key, value, duration);
 
     return {
         type: 'string',
