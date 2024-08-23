@@ -9,6 +9,7 @@ import COPY from "./commands/dataManipulation/COPY";
 import SET from "./commands/dataManipulation/SET";
 import GET from "./commands/dataManipulation/GET";
 import DEL from "./commands/dataManipulation/DEL";
+import TTL from "./commands/dataManipulation/TTL";
 import UNKNOWN from "./commands/errors/unknown";
 import PING from "./commands/basicUtility/PING";
 import ECHO from "./commands/basicUtility/ECHO";
@@ -25,6 +26,7 @@ const router = (commands: IRESP[]): ICommand => {
     if (/set$/gim.test(command)) return SET(commands);
     if (/get$/gim.test(command)) return GET(commands);
     if (/del$/gim.test(command)) return DEL(commands);
+    if (/ttl$/gim.test(command)) return TTL(commands);
     if (/keys$/gim.test(command)) return KEYS(commands);
     if (/copy$/gim.test(command)) return COPY(commands);
     if (/flushall$/gim.test(command)) return FLUSHALL();

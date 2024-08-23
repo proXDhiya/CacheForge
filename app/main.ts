@@ -1,7 +1,7 @@
 import {} from "./setup";
 
 import RESP from "./protocol/RESP";
-import Router from "./_router";
+import Router from "./router";
 import * as net from "net";
 
 const server: net.Server = net.createServer((connection: net.Socket) => {
