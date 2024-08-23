@@ -3,6 +3,7 @@ interface ISharedStorage {
     get(key: string): any | undefined;
     delete(key: string): void;
     search(pattern: string): string[];
+    deleteAll(): void;
 }
 
 class SharedStorage implements ISharedStorage {
@@ -35,6 +36,10 @@ class SharedStorage implements ISharedStorage {
         const regexPattern = pattern.replace(/\*/g, '.*');
         const regex = new RegExp(`^${regexPattern}$`, 'i');
         return keys.filter(key => regex.test(key));
+    }
+
+    public deleteAll(): void {
+        this.storage.clear();
     }
 }
 

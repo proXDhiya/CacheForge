@@ -18,7 +18,7 @@ const SET = (data: IRESP[]): ICommand => {
         : undefined;
 
     if (isEx && duration === undefined) {
-        return {
+        return <ICommand>{
             type: 'string',
             data: 'ERR',
             isErr: true
@@ -27,7 +27,7 @@ const SET = (data: IRESP[]): ICommand => {
 
     SharedStorage.set(key, value, duration);
 
-    return {
+    return <ICommand>{
         type: 'string',
         data: 'OK',
         isErr: false
