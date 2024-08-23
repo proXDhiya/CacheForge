@@ -1,7 +1,7 @@
-import ICommand from "./interfaces/command.interface";
-import NUMBER_ARGS from "./errors/numberArgs";
-import IRESP from "../protocol/IRESP";
-import RDB from "../storage/RDB";
+import ICommand from "../interfaces/command.interface";
+import NUMBER_ARGS from "../errors/numberArgs";
+import IRESP from "../../protocol/IRESP";
+import RDB from "../../storage/RDB";
 
 const CONFIG = (data: IRESP[]): ICommand => {
     if (data.length !== 3)

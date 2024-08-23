@@ -1,7 +1,7 @@
-import ICommand from "./interfaces/command.interface";
-import SharedStorage from "../storage/SharedStorage";
-import NUMBER_ARGS from "./errors/numberArgs";
-import IRESP from "../protocol/IRESP";
+import ICommand from "../interfaces/command.interface";
+import SharedStorage from "../../storage/SharedStorage";
+import NUMBER_ARGS from "../errors/numberArgs";
+import IRESP from "../../protocol/IRESP";
 
 const GET = (data: IRESP[]): ICommand => {
     if (data.length !== 2)

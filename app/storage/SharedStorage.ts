@@ -1,4 +1,10 @@
-class SharedStorage {
+interface ISharedStorage {
+    set(key: string, value: any, expiration?: number): void;
+    get(key: string): any | undefined;
+    delete(key: string): void;
+}
+
+class SharedStorage implements ISharedStorage {
     private storage: Map<string, any>;
 
     constructor() {
@@ -17,6 +23,10 @@ class SharedStorage {
 
     public get(key: string): any | undefined {
         return this.storage.get(key);
+    }
+
+    public delete(key: string): boolean {
+        return this.storage.delete(key);
     }
 }
 

@@ -23,6 +23,8 @@ const encode = (obj: IRESP): string => {
             }
 
             return command;
+        default:
+            break;
     }
 
     throw new Error('Unknown RESP type');
