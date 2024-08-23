@@ -1,8 +1,9 @@
+import formatBulkString from "./helpers/formatBulk";
+import formatArray from "./helpers/formatArray";
 import IRESP from './IRESP';
 
 const encode = (obj: IRESP): string => {
-    if (obj.isErr)
-        return `-${obj.data}\r\n`;
+    if (obj.isErr) return `-${obj.data}\r\n`;
 
     switch (obj.type) {
         case 'string':
@@ -10,24 +11,12 @@ const encode = (obj: IRESP): string => {
         case 'integer':
             return `:${obj.data}\r\n`;
         case 'bulk':
-            if (!obj.data) return '$-1\r\n';
-
-            const isItArray = Array.isArray(obj.data);
-            const commandNumber = isItArray ? obj.data?.length : !obj.data ? 0 : 1;
-            let command = `*${commandNumber}\r\n`;
-
-            if (isItArray) for (const item of obj.data) {
-                command += `$${item.length}\r\n${item}\r\n`;
-            } else {
-                command += `$${obj.data?.length}\r\n${obj.data}\r\n`;
-            }
-
-            return command;
+            return formatBulkString(obj.data);
+        case 'array':
+            return formatArray(obj.data);
         default:
-            break;
+            throw new Error('Unknown RESP type');
     }
-
-    throw new Error('Unknown RESP type');
 };
 
 const decode = (data: string): IRESP[] => {
@@ -46,7 +35,6 @@ const decode = (data: string): IRESP[] => {
         };
     })
 };
-
 export default {
     encode,
     decode,

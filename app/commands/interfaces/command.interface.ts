@@ -1,5 +1,5 @@
 interface ICommand {
-    type: 'string' | 'integer' | 'bulk',
+    type: 'string' | 'integer' | 'bulk' | 'array',
     data: string,
     isErr: boolean
 }

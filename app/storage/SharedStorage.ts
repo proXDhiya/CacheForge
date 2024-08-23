@@ -2,6 +2,7 @@ interface ISharedStorage {
     set(key: string, value: any, expiration?: number): void;
     get(key: string): any | undefined;
     delete(key: string): void;
+    search(pattern: string): string[];
 }
 
 class SharedStorage implements ISharedStorage {
@@ -27,6 +28,13 @@ class SharedStorage implements ISharedStorage {
 
     public delete(key: string): boolean {
         return this.storage.delete(key);
+    }
+
+    public search(pattern: string): string[] {
+        const keys = Array.from(this.storage.keys());
+        const regexPattern = pattern.replace(/\*/g, '.*');
+        const regex = new RegExp(`^${regexPattern}$`, 'i');
+        return keys.filter(key => regex.test(key));
     }
 }
 
