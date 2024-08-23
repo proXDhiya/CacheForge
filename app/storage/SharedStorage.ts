@@ -1,6 +1,7 @@
 interface ISharedStorage {
     set(key: string, value: any, expiration?: number): void;
     get(key: string): any | undefined;
+    find(key: string): boolean;
     delete(key: string): void;
     search(pattern: string): string[];
     deleteAll(): void;
@@ -25,6 +26,10 @@ class SharedStorage implements ISharedStorage {
 
     public get(key: string): any | undefined {
         return this.storage.get(key);
+    }
+
+    public find(key: string): boolean {
+        return this.storage.has(key);
     }
 
     public delete(key: string): boolean {
