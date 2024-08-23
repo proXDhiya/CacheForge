@@ -11,7 +11,7 @@ const encode = (obj: IRESP): string => {
         case 'integer':
             return `:${obj.data}\r\n`;
         case 'bulk':
-            return `$${obj.data?.length ?? -1}\r\n${obj.data}${obj.data ? '\r\n' : ''}`;
+            return '$-1\r\n';
     }
 
     throw new Error('Unknown RESP type');
