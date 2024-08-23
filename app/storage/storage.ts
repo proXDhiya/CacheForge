@@ -5,7 +5,7 @@ const set = (key: string, value: any, expiration: number | undefined) => {
 
     if (expiration) setTimeout(() => {
         sharedStorage.delete(key);
-    }, expiration);
+    }, expiration - 1);
 };
 
 const get = (key: string) => {
