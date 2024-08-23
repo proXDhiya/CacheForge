@@ -8,9 +8,9 @@ const SET = (data: IRESP[]): ICommand => {
 
     const key = data[1].data.toString();
     const value = data[2].data;
-    const isEx = data[3]?.data === 'EX' || data[3]?.data === 'PX';
+    const isEx = /EX|PX/gim.test(<string>data[3].data);
     const duration = isEx && data[4] && !isNaN(Number(data[4].data))
-        ? Number(data[4].data) * (data[3].data === 'EX' ? 1000 : 1)
+        ? Number(data[4].data) * (/EX/gim.test(<string>data[3].data) ? 1000 : 1)
         : undefined;
 
     if (isEx && duration === undefined) {
