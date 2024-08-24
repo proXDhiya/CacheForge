@@ -11,15 +11,14 @@ const COPY = (data: IRESP[]): ICommand => {
     const replaceFlag = data[3] ? /REPLACE/gim.test(data[3].data.toString()) : false;
 
     const isDestinationExists = SharedStorage.find(destination);
+    const value = SharedStorage.get(source);
 
-    if (isDestinationExists && !replaceFlag) {
+    if ((isDestinationExists && !replaceFlag) || !value)
         return <ICommand>{
             type: 'integer',
             data: 0
         };
-    }
 
-    const value = SharedStorage.get(source);
     SharedStorage.set(destination, value);
 
     return <ICommand>{
