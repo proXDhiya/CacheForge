@@ -1,4 +1,4 @@
-import ICommand from "../interfaces/command.interface";
+import ICommand from "../../interfaces/command.interface";
 import IRESP from "../../protocol/IRESP";
 
 const NUMBER_ARGS = (data: IRESP[]): ICommand => {

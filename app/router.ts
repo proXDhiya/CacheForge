@@ -1,4 +1,4 @@
-import ICommand from "./commands/interfaces/command.interface";
+import ICommand from "./interfaces/command.interface";
 import FLUSHALL from "./commands/dataManipulation/FLUSHALL";
 import RENAMENX from "./commands/dataManipulation/RENAMENX";
 import EXISTS from "./commands/dataManipulation/EXISTS";

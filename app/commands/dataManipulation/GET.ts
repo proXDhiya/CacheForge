@@ -1,4 +1,4 @@
-import ICommand from "../interfaces/command.interface";
+import ICommand from "../../interfaces/command.interface";
 import SharedStorage from "../../storage/SharedStorage";
 import NUMBER_ARGS from "../errors/numberArgs";
 import IRESP from "../../protocol/IRESP";

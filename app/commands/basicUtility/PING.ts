@@ -1,4 +1,4 @@
-import ICommand from "../interfaces/command.interface";
+import ICommand from "../../interfaces/command.interface";
 
 const PING = (): ICommand => {
     return <ICommand>{

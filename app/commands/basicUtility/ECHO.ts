@@ -1,4 +1,4 @@
-import ICommand from "../interfaces/command.interface";
+import ICommand from "../../interfaces/command.interface";
 import NUMBER_ARGS from "../errors/numberArgs";
 import IRESP from "../../protocol/IRESP";
 

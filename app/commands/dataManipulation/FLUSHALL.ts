@@ -1,5 +1,5 @@
 import SharedStorage from "../../storage/SharedStorage";
-import ICommand from "../interfaces/command.interface";
+import ICommand from "../../interfaces/command.interface";
 
 const FLUSHALL = (): ICommand => {
     SharedStorage.deleteAll();
