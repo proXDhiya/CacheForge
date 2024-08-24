@@ -1,5 +1,7 @@
 [![progress-banner](https://backend.codecrafters.io/progress/redis/01b0a8ba-34ee-4e5b-8af5-3769bd589e98)](https://app.codecrafters.io/users/codecrafters-bot?r=2qF)
 
+[![CI](https://github.com/proXDhiya/CacheForge/actions/workflows/ci.yml/badge.svg)](https://github.com/proXDhiya/CacheForge/actions/workflows/ci.yml)
+
 This is a starting point for TypeScript solutions to the
 ["Build Your Own Redis" Challenge](https://codecrafters.io/challenges/redis).
 
