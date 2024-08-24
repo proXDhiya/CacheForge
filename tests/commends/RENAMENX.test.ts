@@ -1,10 +1,10 @@
 import RENAMENX from "../../app/commands/dataManipulation/RENAMENX";
 import ICommand from "../../app/interfaces/command.interface";
 import {setupSharedStorage} from "../__mock__/keys.mock";
-import {describe, it, expect, beforeEach} from "bun:test";
+import {describe, it, expect, beforeAll} from "bun:test";
 
 describe('RENAMENX', () => {
-    beforeEach(() => {
+    beforeAll(() => {
         setupSharedStorage();
     });
 
@@ -24,7 +24,7 @@ describe('RENAMENX', () => {
     it('should return a command object with type "integer" and data 0 when the new key already exists', () => {
         const result: ICommand = RENAMENX([
             {type: 'string', data: 'RENAMENX'},
-            {type: 'string', data: 'key'},
+            {type: 'string', data: 'new-key'},
             {type: 'string', data: 'REQ_name'}
         ]);
 
