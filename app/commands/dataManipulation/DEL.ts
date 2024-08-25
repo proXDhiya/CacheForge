@@ -10,7 +10,7 @@ const DEL = (data: IRESP[]): ICommand => {
     let deleted = 0;
 
     keys.map(key => {
-        if (SharedStorage.delete(key))
+        if (SharedStorage.deleteKey(key))
             deleted++;
     });
 

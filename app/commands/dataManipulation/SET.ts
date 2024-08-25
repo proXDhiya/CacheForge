@@ -25,7 +25,7 @@ const SET = (data: IRESP[]): ICommand => {
             data: 'ERR'
         };
 
-    SharedStorage.set(key, value, duration);
+    SharedStorage.setKey(key, value, duration);
 
     return <ICommand>{
         type: 'string',

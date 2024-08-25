@@ -10,7 +10,7 @@ const EXISTS = (data: IRESP[]): ICommand => {
     let exists = 0;
 
     keys.map(key => {
-        if (SharedStorage.find(key))
+        if (SharedStorage.findKey(key))
             exists++;
     });
 

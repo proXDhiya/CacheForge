@@ -9,21 +9,21 @@ const RENAMENX = (data: IRESP[]): ICommand => {
     const key = data[1].data.toString();
     const newKey = data[2].data.toString();
 
-    if (!SharedStorage.find(key)) {
+    if (!SharedStorage.findKey(key)) {
         return <ICommand>{
             type: 'error',
             data: 'ERR'
         }
     }
 
-    if (SharedStorage.find(newKey))
+    if (SharedStorage.findKey(newKey))
         return <ICommand>{
             type: 'integer',
             data: 0
         }
 
-    SharedStorage.set(newKey, SharedStorage.get(key));
-    SharedStorage.delete(key);
+    SharedStorage.setKey(newKey, SharedStorage.getKey(key));
+    SharedStorage.deleteKey(key);
 
     return <ICommand>{
         type: 'integer',

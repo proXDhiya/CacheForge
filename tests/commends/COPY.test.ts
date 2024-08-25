@@ -21,7 +21,7 @@ describe('COPY', () => {
         });
     });
 
-    it('should return a command object with type "integer" and data 0 when the destination key exists and the REPLACE flag is not set', () => {
+    it('should return a command object with type "integer" and data 0 when the destination key exists and the REPLACE flag is not setKey', () => {
         const result: ICommand = COPY([
             {type: 'string', data: 'COPY'},
             {type: 'string', data: 'key'},
@@ -34,7 +34,7 @@ describe('COPY', () => {
         });
     });
 
-    it('should return a command object with type "integer" and data 1 when the destination key exists and the REPLACE flag is set', () => {
+    it('should return a command object with type "integer" and data 1 when the destination key exists and the REPLACE flag is setKey', () => {
         const result: ICommand = COPY([
             {type: 'string', data: 'COPY'},
             {type: 'string', data: 'key'},

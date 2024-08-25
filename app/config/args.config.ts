@@ -1,4 +1,4 @@
-import SharedEnv from './storage/SharedEnv';
+import SharedEnv from '../storage/SharedEnv';
 
 (
     () => {

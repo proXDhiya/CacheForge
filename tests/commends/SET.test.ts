@@ -16,7 +16,7 @@ describe("SET", () => {
         });
     });
 
-    it('should return a command object with type "string" and data "OK" when expiration is set with EX', () => {
+    it('should return a command object with type "string" and data "OK" when expiration is setKey with EX', () => {
         const result: ICommand = SET([
             {type: 'string', data: 'SET'},
             {type: 'string', data: 'key'},
@@ -31,7 +31,7 @@ describe("SET", () => {
         });
     });
 
-    it('should return a command object with type "string" and data "OK" when expiration is set with PX', () => {
+    it('should return a command object with type "string" and data "OK" when expiration is setKey with PX', () => {
         const result: ICommand = SET([
             {type: 'string', data: 'SET'},
             {type: 'string', data: 'key'},
@@ -46,7 +46,7 @@ describe("SET", () => {
         });
     });
 
-    it('should return a command object with type "error" and data "ERR" when expiration is set with EX but duration is not a number', () => {
+    it('should return a command object with type "error" and data "ERR" when expiration is setKey with EX but duration is not a number', () => {
         const result: ICommand = SET([
             {type: 'string', data: 'SET'},
             {type: 'string', data: 'key'},
@@ -61,7 +61,7 @@ describe("SET", () => {
         });
     });
 
-    it('should return a command object with type "error" and data "ERR" when expiration is set with PX but duration is not a number', () => {
+    it('should return a command object with type "error" and data "ERR" when expiration is setKey with PX but duration is not a number', () => {
         const result: ICommand = SET([
             {type: 'string', data: 'SET'},
             {type: 'string', data: 'key'},
@@ -76,7 +76,7 @@ describe("SET", () => {
         });
     });
 
-    it('should return a command object with type "error" and data "ERR" when expiration is set with EX but duration is not provided', () => {
+    it('should return a command object with type "error" and data "ERR" when expiration is setKey with EX but duration is not provided', () => {
         const result: ICommand = SET([
             {type: 'string', data: 'SET'},
             {type: 'string', data: 'key'},
@@ -90,7 +90,7 @@ describe("SET", () => {
         });
     });
 
-    it('should return a command object with type "error" and data "ERR" when expiration is set with PX but duration is not provided', () => {
+    it('should return a command object with type "error" and data "ERR" when expiration is setKey with PX but duration is not provided', () => {
         const result: ICommand = SET([
             {type: 'string', data: 'SET'},
             {type: 'string', data: 'key'},
@@ -104,7 +104,7 @@ describe("SET", () => {
         });
     });
 
-    it('should return a command object with type "error" and data "ERR" when expiration is set with an invalid option', () => {
+    it('should return a command object with type "error" and data "ERR" when expiration is setKey with an invalid option', () => {
         const result: ICommand = SET([
             {type: 'string', data: 'SET'},
             {type: 'string', data: 'key'},

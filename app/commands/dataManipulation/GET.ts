@@ -7,7 +7,7 @@ const GET = (data: IRESP[]): ICommand => {
     if (data.length !== 2)
         return NUMBER_ARGS(data);
 
-    const value = SharedStorage.get(data[1].data.toString());
+    const value = SharedStorage.getKey(data[1].data.toString());
 
     if (!value) return <ICommand>{
         type: 'bulk',

@@ -13,6 +13,7 @@ import TTL from "./commands/dataManipulation/TTL";
 import UNKNOWN from "./commands/errors/unknown";
 import PING from "./commands/basicUtility/PING";
 import ECHO from "./commands/basicUtility/ECHO";
+import SAVE from "./commands/presistence/SAVE";
 import IRESP from "./protocol/IRESP";
 
 const router = (commands: IRESP[]): ICommand => {
@@ -36,6 +37,9 @@ const router = (commands: IRESP[]): ICommand => {
 
     // Configuration commands
     if (/config/gim.test(command)) return CONFIG(commands);
+
+    // Persistence commands
+    if (/save$/gim.test(command)) return SAVE();
 
     return UNKNOWN(commands[0].data);
 }
