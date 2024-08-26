@@ -1,5 +1,5 @@
-import unixTimeEncoder from "./unixTimeEncoder";
-import stringEncoder from "./stringEncoder";
+import unixTimeOperations from "./unixTimeOperations";
+import stringOperations from "./stringOperations";
 import fs from "fs";
 
 enum OP_CODES {
@@ -15,9 +15,9 @@ enum DATA_TYPES {
     STRING = '00',
 }
 
-const generateRDB = (data: Map<string, any>): string => {
-    const folderPath = process.cwd() + '/dumps';
-    const fileName = 'dump.rdb';
+const generateRDB = (data: Map<string, any>, path?: string, fileName?: string): string => {
+    const folderPath = path ? path : process.cwd() + '/dumps';
+    fileName = fileName ? fileName : 'dump.rdb';
 
     if (!fs.existsSync(folderPath)) fs.mkdirSync(folderPath);
 
@@ -49,10 +49,10 @@ const generateRDB = (data: Map<string, any>): string => {
         if (type === 'string') result = DATA_TYPES.STRING;
         else return;
 
-        result += stringEncoder(key);
-        result += stringEncoder(data);
+        result += stringOperations.stringEncoder(key);
+        result += stringOperations.stringEncoder(data);
 
-        if (expiredAt) result += 'FC' + unixTimeEncoder(expiredAt);
+        if (expiredAt) result += 'FC' + unixTimeOperations.unixTimeEncoder(expiredAt);
         dataSection += result;
     });
 
@@ -66,7 +66,7 @@ const generateRDB = (data: Map<string, any>): string => {
     const buffer = Buffer.from(header + metadata + dataSection, 'hex');
     fs.writeFileSync(folderPath + '/' + fileName, buffer);
 
-    return `RDB file generated ${fileName}`;
+    return `RDB file generated ${fileName} in ${folderPath}`;
 };
 
 export default generateRDB;
