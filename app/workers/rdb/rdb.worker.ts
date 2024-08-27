@@ -9,7 +9,9 @@ self.onmessage = (event: MessageEvent) => {
 
     switch (message) {
         case 'RDB.SAVE':
-            result = generateRDB(event.data.content);
+            const subFileName = event.data.content.path.split('/').pop() || undefined;
+            const subFilepath = event.data.content.path.split('/').slice(0, -1).join('/') || undefined;
+            result = generateRDB(event.data.content.map, subFilepath, subFileName);
             postMessage(result);
             break;
 
